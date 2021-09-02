@@ -1,1 +1,1 @@
-export const getRev = () => 1
+export const getRev = () => 'dsad'
