@@ -9,9 +9,11 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "yarn tsc"
+    "build": "yarn tsc",
+    "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
     "eslint": "^7.32.0",
@@ -19,6 +21,9 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
+    "jest": "^27.1.1",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
     "typescript": "^4.4.2"
   },
   "dependencies": {
