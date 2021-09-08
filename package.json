@@ -9,8 +9,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build": "babel src --extensions .ts --out-dir lib --copy-files --no-copy-ignored",
-    "test": "jest"
+    "prepack": "yarn build",
+    "build": "babel src --extensions .ts --out-dir lib --copy-files --no-copy-ignored & yarn tsc --emitDeclarationOnly"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.4",
