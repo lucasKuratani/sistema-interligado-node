@@ -1,12 +1,13 @@
-import { startOfMonth, add, isSameWeek } from 'date-fns'
+import { startOfMonth, startOfWeek, add, eachWeekOfInterval, isSameWeek } from 'date-fns'
 
 export const getRev = (date: Date): number => {
-  const firstDayOfDateMonth = startOfMonth(date)
-  const firstDayOfNextMonth = startOfMonth(add(date, { months: 1 }))
+  const startOfMonthFirstRev = startOfWeek(startOfMonth(date), { weekStartsOn: 6 })
+  const startOfMonthLastRev = add(startOfWeek(startOfMonth(add(date, { months: 1 }))), { weeks: -1 })
+  const startsOfAllMonthRevs = eachWeekOfInterval({ start: startOfMonthFirstRev, end: startOfMonthLastRev }, { weekStartsOn: 6 })
 
-  if (isSameWeek(date, firstDayOfDateMonth, { weekStartsOn: 6 }) || isSameWeek(date, firstDayOfNextMonth, { weekStartsOn: 6 })) return 0
+  if (isSameWeek(startOfWeek(startOfMonth(add(date, { months: 1 })), { weekStartsOn: 6 }), date, { weekStartsOn: 6 })) return 0
 
-  return 1
+  return startsOfAllMonthRevs.findIndex(startOfRev => isSameWeek(startOfRev, date, { weekStartsOn: 6 }))
 }
 
 export default getRev

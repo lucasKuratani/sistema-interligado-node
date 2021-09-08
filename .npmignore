@@ -1,5 +1,7 @@
 src
+tsconfig.json
+jest.config.ts
+babel.config.js
 .editorconfig
 .eslintrc.json
 .eslintignore
-tsconfig.json
